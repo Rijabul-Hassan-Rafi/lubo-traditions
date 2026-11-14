@@ -61,7 +61,26 @@ export default function AdminPage() {
 
   async function signOut() { await sb.auth.signOut(); router.replace("/admin/login"); }
   function openNew() { setEditing("new"); setForm(blank); setFile(null); setTab("products"); }
-  function openEdit(p) { setEditing(p.id); setForm({ ...p, price:String(p.price), compare_price:p.compare_price == null ? "" : String(p.compare_price), stock:String(p.stock), sizes:(p.sizes||[]).join(", "), colors:(p.colors||[]).join(", ") }); setFile(null); }
+  function openEdit(p) {
+  setEditing(p.id);
+
+  setForm({
+    name: p.name ?? "",
+    description: p.description ?? "",
+    category: p.category ?? "Traditional",
+    sku: p.sku ?? "",
+    price: p.price == null ? "" : String(p.price),
+    compare_price: p.compare_price == null ? "" : String(p.compare_price),
+    image_url: p.image_url ?? "",
+    sizes: Array.isArray(p.sizes) ? p.sizes.join(", ") : "",
+    colors: Array.isArray(p.colors) ? p.colors.join(", ") : "",
+    stock: p.stock == null ? "0" : String(p.stock),
+    is_published: p.is_published ?? true
+  });
+
+  setFile(null);
+}
+  
   async function saveProduct(e) {
     e.preventDefault(); setSaving(true); setError(""); setMessage("");
     try {
@@ -74,13 +93,28 @@ export default function AdminPage() {
         const {data}=sb.storage.from("products").getPublicUrl(path);
         image_url=data.publicUrl;
       }
-      const payload={
-        name:form.name.trim(), description:form.description.trim(), category:form.category.trim(),
-        sku:form.sku.trim()||null, price:Number(form.price), compare_price:form.compare_price?Number(form.compare_price):null,
-        image_url, sizes:form.sizes.split(",").map(x=>x.trim()).filter(Boolean),
-        colors:form.colors.split(",").map(x=>x.trim()).filter(Boolean), stock:Number(form.stock),
-        is_published:Boolean(form.is_published), updated_at:new Date().toISOString()
-      };
+      const payload = {
+  name: String(form.name ?? "").trim(),
+  description: String(form.description ?? "").trim(),
+  category: String(form.category ?? "").trim(),
+  sku: String(form.sku ?? "").trim() || null,
+  price: Number(form.price),
+  compare_price: String(form.compare_price ?? "").trim()
+    ? Number(form.compare_price)
+    : null,
+  image_url: String(image_url ?? ""),
+  sizes: String(form.sizes ?? "")
+    .split(",")
+    .map(x => x.trim())
+    .filter(Boolean),
+  colors: String(form.colors ?? "")
+    .split(",")
+    .map(x => x.trim())
+    .filter(Boolean),
+  stock: Number(form.stock),
+  is_published: Boolean(form.is_published),
+  updated_at: new Date().toISOString()
+};
       if(!payload.name || !payload.category || !Number.isFinite(payload.price) || payload.price<0 || !Number.isInteger(payload.stock) || payload.stock<0) throw new Error("Check product name, category, price and stock.");
       const result=editing==="new" ? await sb.from("products").insert(payload) : await sb.from("products").update(payload).eq("id",editing);
       if(result.error) throw result.error;
