@@ -56,6 +56,20 @@ export default function Home() {
     setNotice(`${product.name} added to your bag`);
     setTimeout(() => setNotice(""), 2200);
   }
+
+function buyNow(product) {
+  if (product.id.toString().startsWith("demo-")) {
+    setNotice("Please order an available store product.");
+    setTimeout(() => setNotice(""), 3000);
+    return;
+  }
+
+  setCart([{ ...product, qty: 1 }]);
+  setSelected(null);
+  setCartOpen(false);
+  setCheckoutOpen(true);
+}
+
   function changeQty(id, delta) {
     setCart(prev => prev.map(x => x.id === id ? { ...x, qty: x.qty + delta } : x).filter(x => x.qty > 0));
   }
@@ -129,8 +143,33 @@ export default function Home() {
         <div className="product-grid">
           {filtered.map((p, i) => <article className="product-card" key={p.id}>
             <button className="product-image" onClick={() => setSelected(p)} aria-label={`View ${p.name}`}><img src={p.image_url || "https://placehold.co/700x900?text=LUBO"} alt={p.name} loading={i > 2 ? "lazy" : "eager"}/>{p.compare_price && Number(p.compare_price) > Number(p.price) && <span className="tag">SPECIAL PRICE</span>}<span className="quick-view">QUICK VIEW <ArrowRight size={13}/></span></button>
-            <div className="product-info"><div><h3>{p.name}</h3><p>{p.category}</p></div><strong>{money(p.price)}</strong></div>
-            <button className="add-btn" onClick={() => addToCart(p)}>ADD TO BAG <Plus size={14}/></button>
+            
+<div className="product-info">
+  <div>
+    <h3>{p.name}</h3>
+    <p>{p.category}</p>
+  </div>
+  <div className="product-pricing">
+    <strong>{money(p.price)}</strong>
+    {Number(p.compare_price) > Number(p.price) && (
+      <>
+        <del>{money(p.compare_price)}</del>
+        <span className="discount-badge">
+          SAVE {Math.round((Number(p.compare_price) - Number(p.price)) / Number(p.compare_price) * 100)}%
+        </span>
+      </>
+    )}
+  </div>
+</div>
+
+<button className="add-btn" onClick={() => addToCart(p)}>
+  ADD TO BAG <Plus size={14}/>
+</button>
+
+<button className="order-now-btn" onClick={() => buyNow(p)}>
+  ORDER NOW <ArrowRight size={14}/>
+</button>
+
           </article>)}
         </div>
         {filtered.length === 0 && <p className="empty">No pieces found. Try another search.</p>}
