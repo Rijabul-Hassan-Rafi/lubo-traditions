@@ -58,3 +58,77 @@
   background: #a47c52;
   border-color: #a47c52;
 }
+/* Auto Sliding Banner */
+.hero-image {
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-slide {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  transition: background-image 0.5s ease-in-out;
+  animation: bannerFade 0.8s ease;
+}
+
+@keyframes bannerFade {
+  from {
+    opacity: 0.5;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.hero-image-label {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(255, 253, 248, 0.92);
+  padding: 15px 20px;
+  z-index: 2;
+}
+
+.hero-dots {
+  bottom: 75px;
+}
+
+.hero-dots {
+  position: absolute;
+  bottom: 55px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 10px;
+  z-index: 5;
+}
+
+.hero-image-label {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(255, 253, 248, 0.92);
+  padding: 12px 20px;
+  text-align: center;
+  z-index: 2;
+}
+
+.hero-dots button {
+  width: 9px;
+  height: 9px;
+  border: none;
+  border-radius: 50%;
+  background: rgba(212, 175, 55, 0.45);
+  cursor: pointer;
+  padding: 0;
+}
+
+.hero-dots button.active {
+  background: #D4AF37;
+  width: 25px;
+  border-radius: 10px;
+}

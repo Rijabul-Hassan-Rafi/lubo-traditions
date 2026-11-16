@@ -23,6 +23,15 @@ export default function Home() {
   const [form, setForm] = useState({ name: "", phone: "", address: "", note: "" });
   const [busy, setBusy] = useState(false);
   const [notice, setNotice] = useState("");
+  const [currentSlide, setCurrentSlide] = useState(0);
+
+useEffect(() => {
+  const timer = setInterval(() => {
+    setCurrentSlide((prev) => (prev + 1) % 3);
+  }, 4000);
+
+  return () => clearInterval(timer);
+}, []);
 
   useEffect(() => {
     try {
@@ -131,7 +140,31 @@ function buyNow(product) {
           <a className="primary-btn" href="#shop">EXPLORE THE COLLECTION <ArrowRight size={16}/></a>
           <div className="hero-note"><span>✳</span> MADE TO BE WORN, LOVED & REMEMBERED</div>
         </div>
-        <div className="hero-image"><div className="hero-image-label"><span>THE NEW EDIT</span><b>Quietly timeless.</b></div></div>
+        <div className="hero-image">
+  <div
+    className="hero-slide"
+    style={{
+      backgroundImage: `url('/banner-${currentSlide + 1}.${currentSlide === 1 ? "jpg" : "jpeg"}')`
+    }}
+  />
+
+  
+
+  <div className="hero-dots">
+    {[0, 1, 2].map((index) => (
+      <button
+        key={index}
+        className={currentSlide === index ? "active" : ""}
+        onClick={() => setCurrentSlide(index)}
+        aria-label={`Go to slide ${index + 1}`}
+      />
+    ))}
+  </div>
+  <div className="hero-image-label">
+    <span>THE NEW EDIT</span>
+    <b>Quietly timeless.</b>
+  </div>
+</div>
         <div className="hero-side">LUBO TRADITIONS — EST. WITH LOVE</div>
       </section>
 
