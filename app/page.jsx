@@ -5,11 +5,7 @@ import { Search, ShoppingBag, Menu, X, Plus, Minus, ArrowRight, Instagram, Faceb
 import { supabaseBrowser } from "@/lib/supabase-browser";
 
 const money = (n) => `৳${Number(n || 0).toLocaleString("en-BD")}`;
-const fallback = [
-  { id: "demo-1", name: "Noor Embroidered Kurti", category: "Kurtis", price: 1890, compare_price: 2290, image_url: "https://images.unsplash.com/photo-1583391733956-6c78276477e3?auto=format&fit=crop&w=900&q=85", description: "A graceful everyday silhouette with delicate detailing." },
-  { id: "demo-2", name: "Aarohi Classic Set", category: "Co-ord Sets", price: 2650, image_url: "https://images.unsplash.com/photo-1610030469983-98e550d6193c?auto=format&fit=crop&w=900&q=85", description: "An effortlessly polished set for every occasion." },
-  { id: "demo-3", name: "Saira Festive Edit", category: "Traditional", price: 3200, image_url: "https://images.unsplash.com/photo-1610030469668-8e9f641aaf2b?auto=format&fit=crop&w=900&q=85", description: "A refined festive look with a graceful finish." }
-];
+const fallback = []
 
 export default function Home() {
   const [products, setProducts] = useState(fallback);
@@ -27,7 +23,7 @@ export default function Home() {
 
 useEffect(() => {
   const timer = setInterval(() => {
-    setCurrentSlide((prev) => (prev + 1) % 3);
+    setCurrentSlide((prev) => (prev + 1) % 5);
   }, 4000);
 
   return () => clearInterval(timer);
@@ -144,14 +140,14 @@ function buyNow(product) {
   <div
     className="hero-slide"
     style={{
-      backgroundImage: `url('/banner-${currentSlide + 1}.${currentSlide === 1 ? "jpg" : "jpeg"}')`
+      backgroundImage: `url('/banner-${currentSlide + 1}.jpg')`
     }}
   />
 
   
 
   <div className="hero-dots">
-    {[0, 1, 2].map((index) => (
+    {[0, 1, 2, 3, 4].map((index) => (
       <button
         key={index}
         className={currentSlide === index ? "active" : ""}
