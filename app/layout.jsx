@@ -1,4 +1,6 @@
+
 import "./globals.css";
+import WhatsAppChat from "./components/WhatsAppChat";
 
 export const metadata = {
   title: "LUBO TRADITIONS | Elegance in Every Tradition",
@@ -8,7 +10,10 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body>{children}</body>
+      <body>
+        {children}
+        <WhatsAppChat />
+      </body>
     </html>
   );
 }

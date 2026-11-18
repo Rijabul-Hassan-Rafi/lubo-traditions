@@ -132,3 +132,168 @@
   width: 25px;
   border-radius: 10px;
 }
+
+/* Floating WhatsApp Chat Button */
+.whatsapp-float {
+  position: fixed;
+  right: 25px;
+  bottom: 25px;
+  width: 60px;
+  height: 60px;
+  background: #25D366;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.22);
+  z-index: 9999;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.whatsapp-float:hover {
+  background: #1ebe5d;
+  transform: scale(1.1);
+}
+
+@media (max-width: 600px) {
+  .whatsapp-float {
+    right: 16px;
+    bottom: 18px;
+    width: 20px;
+    height: 20px;
+  }
+}
+
+.whatsapp-float {
+  flex-direction: column;
+  gap: 2px;
+}
+
+.whatsapp-label {
+  color: white;
+  font-size: 8px;
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: 0.5px;
+}
+
+.whatsapp-float {
+  animation: whatsappPulse 2s infinite;
+}
+
+@keyframes whatsappPulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.45);
+  }
+  70% {
+    box-shadow: 0 0 0 10px rgba(37, 211, 102, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(37, 211, 102, 0);
+  }
+}
+
+.whatsapp-label {
+  animation: liveBlink 1.5s infinite;
+}
+
+@keyframes liveBlink {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.45;
+  }
+}
+
+/* Payment Methods Section */
+.payment-methods {
+  width: 100%;
+  max-width: none;
+  margin: 0 auto;
+  padding: 16px 20px;
+  text-align: center;
+  border-top: 1px solid #e9e2d4;
+  background: #fff;
+  box-sizing: border-box;
+}
+
+.payment-methods h4 {
+  font-size: 12px;
+  letter-spacing: 2px;
+  color: #8a7448;
+  margin-top: 0;
+margin-bottom: 14px;
+}
+
+.payment-list {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 14px;
+}
+
+.payment-item {
+  min-width: 115px;
+  padding: 12px 18px;
+  border: 1px solid #eee5d5;
+  border-radius: 8px;
+  background: #fff;
+  font-size: 13px;
+  font-weight: 600;
+  color: #333;
+  transition: 0.3s ease;
+}
+
+.payment-item:hover {
+  border-color: #c5a45b;
+  transform: translateY(-3px);
+  box-shadow: 0 5px 15px rgba(0,0,0,0.06);
+}
+
+.bkash span {
+  color: #e2136e;
+}
+
+.nagad span {
+  color: #f58220;
+}
+
+.bank span {
+  color: #234b75;
+}
+
+.cod span {
+  color: #54834c;
+}
+
+@media (max-width: 600px) {
+  .payment-list {
+    gap: 9px;
+  }
+
+  .payment-item {
+    min-width: 135px;
+    padding: 11px 10px;
+    font-size: 12px;
+  }
+}
+.payment-item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+}
+
+.payment-item img {
+  width: 38px;
+  height: 28px;
+  object-fit: contain;
+}
+
+.payment-icon {
+  font-size: 24px;
+  line-height: 1;
+}

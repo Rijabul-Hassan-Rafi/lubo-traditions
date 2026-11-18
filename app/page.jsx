@@ -212,7 +212,34 @@ function buyNow(product) {
   alt="L"
   className="brand-mark"
   style={{ objectFit: "contain" }}
-/><span>LUBO <b>TRADITIONS</b><small>TIMELESS • THOUGHTFUL • YOU</small></span></a><p className="footer-blurb">Celebrating timeless style, thoughtful details and the beauty of tradition.</p></div><div><h4>EXPLORE</h4><a href="#shop">Shop all</a><a href="#story">Our story</a><a href="#contact">Contact</a></div><div><h4>WE'RE HERE</h4><p>For orders & enquiries</p><p>Bangladesh</p><p>WhatsApp: 8801767470490</p></div><div><h4>FOLLOW OUR JOURNEY</h4><div className="socials"><a href="https://www.instagram.com/lubotraditions/" aria-label="Instagram"><Instagram/></a><a href="https://www.facebook.com/profile.php?id=61572302204625" aria-label="Facebook"><Facebook/></a><a href="https://wa.me/8801767470490" aria-label="WhatsApp"><MessageCircle/></a></div></div></div><div className="copyright"><span>© {new Date().getFullYear()} LUBO TRADITIONS. ALL RIGHTS RESERVED.</span><span>MADE WITH CARE ✳</span></div></footer>
+/><span>LUBO <b>TRADITIONS</b><small>TIMELESS • THOUGHTFUL • YOU</small></span></a><p className="footer-blurb">Celebrating timeless style, thoughtful details and the beauty of tradition.</p></div><div><h4>EXPLORE</h4><a href="#shop">Shop all</a><a href="#story">Our story</a><a href="#contact">Contact</a></div><div><h4>WE'RE HERE</h4><p>For orders & enquiries</p><p>Bangladesh</p><p>WhatsApp: 8801767470490</p></div><div><h4>FOLLOW OUR JOURNEY</h4><div className="socials"><a href="https://www.instagram.com/lubotraditions/" aria-label="Instagram"><Instagram/></a><a href="https://www.facebook.com/profile.php?id=61572302204625" aria-label="Facebook"><Facebook/></a><a href="https://wa.me/8801767470490" aria-label="WhatsApp"><MessageCircle/></a></div></div></div>
+
+<div className="payment-methods">
+  <h4>PAYMENT METHODS</h4>
+
+  <div className="payment-list">
+    <div className="payment-item bkash">
+      <img src="/bkash.png" alt="bKash" />
+      <span>bKash</span>
+    </div>
+
+    <div className="payment-item nagad">
+      <img src="/nagad.png" alt="Nagad" />
+      <span>Nagad</span>
+    </div>
+
+    <div className="payment-item bank">
+      <span className="payment-icon">🏦</span>
+      <span>Bank Payment</span>
+    </div>
+
+    <div className="payment-item cod">
+      <span className="payment-icon">🚚</span>
+      <span>Cash on Delivery</span>
+    </div>
+  </div>
+</div>
+<div className="copyright"><span>© {new Date().getFullYear()} LUBO TRADITIONS. ALL RIGHTS RESERVED.</span><span>MADE WITH CARE ✳</span></div></footer>
 
       {notice && <div className="toast"><CheckCircle2 size={17}/>{notice}</div>}
       {selected && <div className="overlay" onClick={() => setSelected(null)}><div className="modal product-modal" onClick={e => e.stopPropagation()}><button className="close" onClick={() => setSelected(null)}><X/></button><img src={selected.image_url || "https://placehold.co/700x900?text=LUBO"} alt={selected.name}/><div className="modal-copy"><p className="eyebrow">{selected.category}</p><h2>{selected.name}</h2><strong>{money(selected.price)}</strong><p>{selected.description}</p>{selected.sizes?.length > 0 && <p>Sizes: {selected.sizes.join(", ")}</p>}<button className="primary-btn" onClick={() => addToCart(selected)}>ADD TO BAG <ArrowRight size={16}/></button></div></div></div>}
