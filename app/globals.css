@@ -297,3 +297,8 @@ margin-bottom: 14px;
   font-size: 24px;
   line-height: 1;
 }
+.copyright {
+  text-align: center;
+  width: 100%;
+  justify-content: center;
+}

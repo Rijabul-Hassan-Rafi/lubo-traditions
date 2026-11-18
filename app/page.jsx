@@ -239,7 +239,7 @@ function buyNow(product) {
     </div>
   </div>
 </div>
-<div className="copyright"><span>© {new Date().getFullYear()} LUBO TRADITIONS. ALL RIGHTS RESERVED.</span><span>MADE WITH CARE ✳</span></div></footer>
+<div className="copyright"><span>© {new Date().getFullYear()} LUBO TRADITIONS. ALL RIGHTS RESERVED.</span>&nbsp;&nbsp;<span>MADE WITH CARE ✳</span></div></footer>
 
       {notice && <div className="toast"><CheckCircle2 size={17}/>{notice}</div>}
       {selected && <div className="overlay" onClick={() => setSelected(null)}><div className="modal product-modal" onClick={e => e.stopPropagation()}><button className="close" onClick={() => setSelected(null)}><X/></button><img src={selected.image_url || "https://placehold.co/700x900?text=LUBO"} alt={selected.name}/><div className="modal-copy"><p className="eyebrow">{selected.category}</p><h2>{selected.name}</h2><strong>{money(selected.price)}</strong><p>{selected.description}</p>{selected.sizes?.length > 0 && <p>Sizes: {selected.sizes.join(", ")}</p>}<button className="primary-btn" onClick={() => addToCart(selected)}>ADD TO BAG <ArrowRight size={16}/></button></div></div></div>}
