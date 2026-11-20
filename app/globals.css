@@ -302,3 +302,180 @@ margin-bottom: 14px;
   width: 100%;
   justify-content: center;
 }
+
+/* =================================
+   LUBO EDITORIAL STORY SECTION
+================================= */
+
+.story-editorial {
+  width: 100%;
+  padding: 75px 24px;
+  background: #f3eee7;
+  overflow: hidden;
+}
+
+.story-editorial-inner {
+  max-width: 780px;
+  margin: 0 auto;
+  text-align: center;
+  position: relative;
+}
+
+.story-topline {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: 22px;
+  margin-bottom: 38px;
+  border-bottom: 1px solid #d9cfc3;
+  color: #8c7765;
+  font-size: 9px;
+  letter-spacing: 2px;
+}
+
+.story-number,
+.story-label {
+  font-weight: 600;
+}
+
+.story-star {
+  font-size: 19px;
+  color: #a58a70;
+}
+
+.story-editorial .eyebrow {
+  font-size: 10px;
+  letter-spacing: 3px;
+  color: #92765e;
+  margin-bottom: 20px;
+}
+
+.story-editorial h2 {
+  font-family: Georgia, serif;
+  font-size: clamp(38px, 5.2vw, 64px);
+  line-height: 1.12;
+  font-weight: 400;
+  color: #302923;
+  margin: 0;
+  letter-spacing: -2px;
+}
+
+.story-editorial h2 em {
+  color: #9a806b;
+  font-weight: 400;
+}
+
+.story-divider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+  margin: 27px auto;
+  color: #a58a70;
+  font-size: 13px;
+}
+
+.story-divider span:not(:nth-child(2)) {
+  width: 55px;
+  height: 1px;
+  background: #d5c7b8;
+}
+
+.story-description {
+  max-width: 540px;
+  margin: 0 auto;
+  color: #77695e;
+  font-size: 14px;
+  line-height: 2;
+  font-weight: 400;
+}
+
+.story-editorial-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 13px;
+  margin-top: 28px;
+  padding-bottom: 9px;
+  border-bottom: 1px solid #a58a70;
+  color: #302923;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 1.5px;
+  text-decoration: none;
+  transition: gap 0.3s ease;
+}
+
+.story-editorial-link:hover {
+  gap: 21px;
+}
+
+.story-bottomline {
+  margin-top: 48px;
+  color: #a18d7b;
+  font-size: 9px;
+  letter-spacing: 3px;
+}
+
+/* MOBILE RESPONSIVE */
+
+@media (max-width: 768px) {
+  .story-editorial {
+    padding: 43px 22px;
+  }
+
+  .story-editorial-inner {
+    max-width: 100%;
+  }
+
+  .story-topline {
+    margin-bottom: 30px;
+    padding-bottom: 15px;
+    font-size: 8px;
+    letter-spacing: 1.2px;
+  }
+
+  .story-star {
+    font-size: 15px;
+  }
+
+  .story-editorial .eyebrow {
+    font-size: 9px;
+    margin-bottom: 15px;
+  }
+
+  .story-editorial h2 {
+    font-size: clamp(34px, 9vw, 46px);
+    line-height: 1.17;
+    letter-spacing: -1.5px;
+  }
+
+  .story-divider {
+    margin: 21px auto;
+  }
+
+  .story-description {
+    font-size: 13px;
+    line-height: 1.85;
+  }
+
+  .story-editorial-link {
+    margin-top: 23px;
+    font-size: 9px;
+  }
+
+  .story-bottomline {
+    margin-top: 32px;
+    font-size: 8px;
+    letter-spacing: 2px;
+  }
+}
+
+@media (max-width: 380px) {
+  .story-topline {
+    letter-spacing: 0.7px;
+  }
+
+  .story-editorial h2 {
+    font-size: 32px;
+  }
+}

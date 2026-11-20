@@ -204,7 +204,48 @@ function buyNow(product) {
         {filtered.length === 0 && <p className="empty">No pieces found. Try another search.</p>}
       </section>
 
-      <section className="story" id="story"><div className="story-image"></div><div className="story-copy"><p className="eyebrow">A NOTE FROM LUBO</p><h2>Rooted in heritage.<br/><em>Made for today.</em></h2><p>We believe getting dressed can be a small, beautiful ritual. LUBO TRADITIONS brings together thoughtful design, graceful details and the comfort to feel like yourself — every single day.</p><a href="#shop" className="text-link">FIND YOUR NEXT FAVOURITE <ArrowRight size={15}/></a></div></section>
+      
+<section className="story-editorial" id="story">
+  <div className="story-editorial-inner">
+
+    <div className="story-topline">
+      <span className="story-number">01 — OUR PHILOSOPHY</span>
+      <span className="story-star">✳</span>
+      <span className="story-label">THE LUBO JOURNAL</span>
+    </div>
+
+    <p className="eyebrow">A NOTE FROM LUBO</p>
+
+    <h2>
+      Rooted in heritage.
+      <br />
+      <em>Made for today.</em>
+    </h2>
+
+    <div className="story-divider">
+      <span></span>
+      <span>✦</span>
+      <span></span>
+    </div>
+
+    <p className="story-description">
+      We believe getting dressed can be a small, beautiful ritual.
+      LUBO TRADITIONS brings together thoughtful design, graceful
+      details and the comfort to feel like yourself — every single day.
+    </p>
+
+    <a href="#shop" className="story-editorial-link">
+      FIND YOUR NEXT FAVOURITE
+      <ArrowRight size={15} />
+    </a>
+
+    <div className="story-bottomline">
+      TIMELESS • THOUGHTFUL • YOU
+    </div>
+
+  </div>
+</section>
+
       <section className="newsletter"><p className="eyebrow">STAY IN THE LOOP</p><h2>Something lovely is <em>on its way.</em></h2><p>Follow along for new arrivals, styling notes and little moments from LUBO.</p><a className="primary-btn dark" href="#contact">CONNECT WITH US <ArrowRight size={16}/></a></section>
 
       <footer id="contact"><div className="footer-main"><div><a className="brand footer-brand" href="#"><img
