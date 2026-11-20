@@ -479,3 +479,72 @@ margin-bottom: 14px;
     font-size: 32px;
   }
 }
+
+/* DESKTOP TWO COLUMN STORY LAYOUT */
+
+@media (min-width: 769px) {
+  .story-editorial {
+    padding: 85px 6%;
+  }
+
+  .story-editorial-inner {
+    max-width: 1400px;
+    width: 100%;
+    margin: 0 auto;
+  }
+
+  .story-main {
+    display: grid;
+    grid-template-columns: 1.2fr 0.8fr;
+    align-items: center;
+    gap: 9%;
+    text-align: left;
+    padding: 35px 0;
+  }
+
+  .story-left {
+    text-align: left;
+  }
+
+  .story-right {
+    max-width: 440px;
+    justify-self: end;
+    padding-top: 25px;
+  }
+
+  .story-divider {
+    justify-content: flex-start;
+    margin-left: 0;
+  }
+
+  .story-description {
+    text-align: left;
+  }
+
+  .story-bottomline {
+    text-align: right;
+    border-top: 1px solid #d9cfc3;
+    padding-top: 20px;
+  }
+}
+
+/* MOBILE ONE COLUMN LAYOUT */
+
+@media (max-width: 768px) {
+  .story-main {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    gap: 0;
+  }
+
+  .story-left,
+  .story-right {
+    width: 100%;
+    text-align: center;
+  }
+
+  .story-divider {
+    justify-content: center;
+  }
+}
