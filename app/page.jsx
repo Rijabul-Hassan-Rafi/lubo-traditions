@@ -156,10 +156,6 @@ function buyNow(product) {
       />
     ))}
   </div>
-  <div className="hero-image-label">
-    <span>THE NEW EDIT</span>
-    <b>Quietly timeless.</b>
-  </div>
 </div>
         <div className="hero-side">LUBO TRADITIONS — EST. WITH LOVE</div>
       </section>
